@@ -1,27 +1,27 @@
 {
     "meta": {
-        "title": "Experiment Title",
-        "description": "desc",
-        "numSubtasks": 3,
-        "disclaimer": "This is a disclaimer. You are participating in this experiment voluntarily.",
+        "title": "Which word is more intense?",
+        "description": "Which word represents a bigger change?",
+        "numSubtasks": 20,
+        "disclaimer": "You are participating in a study being performed by researchers in the MIT Computer Science and Artificial Intelligence Lab. If you have questions about this resarch, please contact <a href='mailto:zoya@mit.edu'>zoya@mit.edu</a>. Your participation in this research is voluntary. You may decline further participation, at any time, without adverse consequences. Your anonymity is assured; the researchers who have requested your participation will not receive any personal information about you.",
         "aggregate": false
     },
     "instructions": {
-        "simple": "These are simple instructions for <b>4</b> tasks",
+        "simple": "Given two adjectives, click on the one that you think describes a larger change.",
         "steps": [
-            "instruction1",
-            "instruction2",
-            "instruction3"
+            "You will be shown two words at a time.",
+            "Select the adjective that you believe describes a LARGER change by clicking on it.",
+            "You will be shown 20 pairs of words total."
         ],
         "images": []
     },
     "hitCreation": {
-        "title": "HIT Title",
-        "description": "HIT description",
-        "numTasks": 5,
+        "title": "Which word is more intense?",
+        "description": "Given two words, select the one you think describes a larger change.",
+        "numTasks": 10,
         "numAssignments": 100,
         "rewardAmount": "0.00",
-        "keywords": "these, are, your, HIT, tags",
+        "keywords": "words, comparison, ranking, fun, challenge, quick",
         "duration": 1200,
         "lifetime": 86400,
         "taskUrl": "your task URL goes here",
