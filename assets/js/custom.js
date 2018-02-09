@@ -43,6 +43,7 @@ var custom = {
         if (task.length < 1) {
             task = '1'; 
         }
+        console.log("Showing task " + task);
         return $.ajax({
             url: "assets/data/" + task + ".json",
             dataType: "json"
@@ -51,7 +52,6 @@ var custom = {
             //var tasks = chooseRandomElts(pairs, numToChoose);
             var tasks = pairs;
             var repeats = chooseRandomElts(tasks, NUM_REPEATS);
-            console.log("repeats", repeats);
 
             repeats.forEach(function(elt) {
                 tasks.push([elt[0], elt[1]]); //copy the array so the order can be shuffled separately 
@@ -64,8 +64,8 @@ var custom = {
             // push the sentinals 
             tasks = tasks.concat(SENTINALS);
             shuffleArray(tasks);
-            return dummies;
-            //return tasks;
+            //return dummies;
+            return tasks;
         });
     },
     showTask: function(taskInput, taskIndex, taskOutput) {
