@@ -2,8 +2,17 @@ const SENTINALS = [
     ["small", "big"],
     ["huge", "tiny"]
 ];
+const NUM_REPEATS = 2;
 
 var LAST_CLICKED;
+var NUM_SUB_TASKS;
+
+var dummies = [
+    ['big', 'little'], 
+    ['tiny', 'huge'],
+    ['large', 'small'], 
+    ['enormous', 'miniscule']
+];
 
 var custom = {
     loadTasks: function(numSubtasks) {
@@ -19,13 +28,13 @@ var custom = {
         // generate a random pair 
 
         //ui setup: remove the next button 
+        NUM_SUB_TASKS = numSubtasks - 1;
         $('#next-button').hide();
         $('.option').click(function() {
             //reset all buttons to unselected state 
             $('.option').removeClass('primary');
             // set the current state 
             LAST_CLICKED = $(this).text();
-            console.log("LAST_CLICKED", LAST_CLICKED);
             $(this).addClass('primary');
             $('#next-button').click();
         });
@@ -34,24 +43,23 @@ var custom = {
             url: "assets/data/pairs.json",
             dataType: "json"
         }).then(function(pairs) {
-            tasks = [];
-            // generate numSubtasks random indices, corresponding to pairs to show 
-            var indices = new Set();
-            var numToChoose = numSubtasks - SENTINALS.length;
-            while (indices.size < numToChoose) {
-                random = Math.floor(Math.random()*pairs.length);
-                indices.add(random);
-            }
-            // push the real data 
-            indices.forEach(function(index) {
-                var options = pairs[index]; 
-                shuffleArray(options);
-                tasks.push(options);
+            var numToChoose = NUM_SUB_TASKS - SENTINALS.length - NUM_REPEATS;
+            var tasks = chooseRandomElts(pairs, numToChoose);
+            var repeats = chooseRandomElts(tasks, NUM_REPEATS);
+            console.log("repeats", repeats);
+
+            repeats.forEach(function(elt) {
+                tasks.push([elt[0], elt[1]]); //copy the array so the order can be shuffled separately 
+            })
+
+            tasks.forEach(function(elt) {
+                shuffleArray(elt);
             });
+
             // push the sentinals 
             tasks = tasks.concat(SENTINALS);
+            console.log("tasks", tasks);
             shuffleArray(tasks);
-            console.log("length tasks", tasks.length);
             return tasks;
         });
     },
@@ -70,14 +78,17 @@ var custom = {
          * 
          * returns: None
          */
+        if (taskIndex == NUM_SUB_TASKS) {
+            $("#custom-task").hide();
+            return;
+        }
+        $('#custom-task').show();
         $(".option").removeClass("primary");
         // fill in the words on the buttons
-        console.log("taskInput", taskInput);
         $('#word1-button').text(taskInput[0]);
         $('#word2-button').text(taskInput[1]);
         //reload old state
         if (taskOutput) {
-            console.log("there was taskoutput");
             $('.option').each(function(i, elt) {
                 var obj = $(elt);
                 if (obj.text() == taskOutput) {
@@ -140,4 +151,19 @@ function shuffleArray(array) {
         array[i] = array[j];
         array[j] = temp;
     }
+}
+
+function chooseRandomElts(array, n) {
+    var indices = new Set();
+    while (indices.size < n) {
+        random = Math.floor(Math.random()*array.length);
+        indices.add(random);
+    }
+
+    var ret = [];
+    // push the real data 
+    indices.forEach(function(index) {
+        ret.push(array[index]);
+    });
+    return ret;
 }

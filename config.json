@@ -1,19 +1,19 @@
 {
     "meta": {
         "title": "Which word is more intense?",
-        "description": "Which word represents a bigger change?",
-        "numSubtasks": 20,
+        "description": "Choose the word that you think indicates a greater change.",
+        "numSubtasks": 21,
         "disclaimer": "You are participating in a study being performed by researchers in the MIT Computer Science and Artificial Intelligence Lab. If you have questions about this resarch, please contact <a href='mailto:zoya@mit.edu'>zoya@mit.edu</a>. Your participation in this research is voluntary. You may decline further participation, at any time, without adverse consequences. Your anonymity is assured; the researchers who have requested your participation will not receive any personal information about you.",
         "aggregate": false
     },
     "instructions": {
-        "simple": "Given two adjectives, click on the one that you think describes a larger change.",
+        "simple": "Given two adjectives, click on the one that you think indicates something larger, more drastic, or more significant, particularly when inserted into the phrase 'a _______ change'.",
         "steps": [
             "You will be shown two words at a time.",
             "Select the adjective that you believe describes a LARGER change by clicking on it.",
             "You will be shown 20 pairs of words total."
         ],
-        "images": []
+        "images": ["demo.gif"]
     },
     "hitCreation": {
         "title": "Which word is more intense?",

@@ -46,15 +46,25 @@
             </div>
         </div>
         <!-- vv CUSTOM EXPERIMENT MARKUP GOES HERE vv -->
-        <div class="row">
-            <h2 class="ui header">Which word indicates a larger change?</h2>
-        </div>
-        <div class="two column centered center aligned row">
+        <div class="two column centered center aligned row" id="custom-task">
             <div class="five wide column">
                 <div id="word1-button" class="ui fluid massive button option">Option One</div>
             </div>
             <div class="five wide column">
                 <div id="word2-button" class="ui fluid massive button option">Option Two</div>
+            </div>
+        </div>
+        <div class="row">
+            <div id="final-task-fields" class="ui form">
+                <div id="feedback-field" class="field">
+                    <label>
+                        Any comments or feedback?
+                    </label>
+                    <textarea id="feedback-input" rows="2"></textarea>
+                </div>
+                <div class="field">
+                    <div id="submit-button" class="ui green right floated button">Submit</div>
+                </div>
             </div>
         </div>
         <!-- ^^ CUSTOM EXPERIMENT MARKUP GOES HERE ^^ -->
@@ -74,17 +84,6 @@
         <div class="top aligned row">
             <div class="eight wide column"></div>
             <div class="right aligned eight wide column">
-                <div id="final-task-fields" class="ui form">
-                    <div id="feedback-field" class="field">
-                        <label>
-                            Any comments or feedback?
-                        </label>
-                        <textarea id="feedback-input" rows="2"></textarea>
-                    </div>
-                    <div class="field">
-                        <div id="submit-button" class="ui green right floated button">Submit</div>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="ui divider"></div>
