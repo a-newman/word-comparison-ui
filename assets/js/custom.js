@@ -9,9 +9,9 @@ var NUM_SUB_TASKS;
 
 var dummies = [
     ['big', 'little'], 
-    ['tiny', 'huge'],
-    ['large', 'small'], 
-    ['enormous', 'miniscule']
+    ['tiny', 'huge'], 
+    ['enormous', 'miniscule'],
+    ['large', 'small']
 ];
 
 var custom = {
@@ -64,7 +64,8 @@ var custom = {
             // push the sentinals 
             tasks = tasks.concat(SENTINALS);
             shuffleArray(tasks);
-            return tasks;
+            return dummies;
+            //return tasks;
         });
     },
     showTask: function(taskInput, taskIndex, taskOutput) {
