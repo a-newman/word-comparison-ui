@@ -1,5 +1,8 @@
 import json
+import math
 import random
+
+TASK_SIZE = 26; 
 
 words = [
     'rapid',
@@ -38,7 +41,29 @@ for i in range(len(words)):
 
 print(len(pairs))
 
-random.shuffle(pairs)
-
 with open('pairs.json', 'w') as outfile: 
     json.dump(pairs, outfile)
+
+random.shuffle(pairs)
+
+# divide the pairs into the right groups.
+num_groups = math.ceil(len(pairs)/TASK_SIZE)
+print("num groups", num_groups)
+
+num_repeats = num_groups*TASK_SIZE - len(pairs)
+print("num repeats", num_repeats)
+
+repeats = random.sample(pairs, num_repeats)
+
+pairs.extend(repeats)
+
+assert len(pairs) == num_groups*TASK_SIZE
+
+# now we can divide up these things 
+
+for i in range(0, len(pairs) - TASK_SIZE, TASK_SIZE): 
+    group_num = i/TASK_SIZE + 1
+    group = pairs[i:i+TASK_SIZE]
+    assert len(group) == TASK_SIZE
+    with open(str(int(group_num)) + '.json', 'w') as outfile: 
+        json.dump(group, outfile)

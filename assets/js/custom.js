@@ -39,12 +39,17 @@ var custom = {
             $('#next-button').click();
         });
 
+        var task = gup('task');
+        if (task.length < 1) {
+            task = '1'; 
+        }
         return $.ajax({
-            url: "assets/data/pairs.json",
+            url: "assets/data/" + task + ".json",
             dataType: "json"
         }).then(function(pairs) {
-            var numToChoose = NUM_SUB_TASKS - SENTINALS.length - NUM_REPEATS;
-            var tasks = chooseRandomElts(pairs, numToChoose);
+            // var numToChoose = NUM_SUB_TASKS - SENTINALS.length - NUM_REPEATS;
+            //var tasks = chooseRandomElts(pairs, numToChoose);
+            var tasks = pairs;
             var repeats = chooseRandomElts(tasks, NUM_REPEATS);
             console.log("repeats", repeats);
 
@@ -58,7 +63,6 @@ var custom = {
 
             // push the sentinals 
             tasks = tasks.concat(SENTINALS);
-            console.log("tasks", tasks);
             shuffleArray(tasks);
             return tasks;
         });
@@ -166,4 +170,13 @@ function chooseRandomElts(array, n) {
         ret.push(array[index]);
     });
     return ret;
+}
+
+function gup(name) {
+    var regexS = "[\\?&]"+name+"=([^&#]*)";
+    var regex = new RegExp( regexS );
+    var tmpURL = window.location.href;
+    var results = regex.exec( tmpURL );
+    if (results == null) return "";
+    else return results[1];
 }
