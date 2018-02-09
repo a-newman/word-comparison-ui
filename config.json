@@ -24,7 +24,18 @@
         "keywords": "words, comparison, ranking, fun, challenge, quick",
         "duration": 1200,
         "lifetime": 86400,
-        "taskUrl": "your task URL goes here",
-        "production": false
+        "taskUrl": "",
+        "production": false, 
+        "variants": [
+            {"taskUrl": "http://people.csail.mit.edu/apnewman/word_comparison/?task=1"}, 
+            {"taskUrl": "http://people.csail.mit.edu/apnewman/word_comparison/?task=2"}, 
+            {"taskUrl": "http://people.csail.mit.edu/apnewman/word_comparison/?task=3"}, 
+            {"taskUrl": "http://people.csail.mit.edu/apnewman/word_comparison/?task=4"}, 
+            {"taskUrl": "http://people.csail.mit.edu/apnewman/word_comparison/?task=5"}, 
+            {"taskUrl": "http://people.csail.mit.edu/apnewman/word_comparison/?task=6"}, 
+            {"taskUrl": "http://people.csail.mit.edu/apnewman/word_comparison/?task=7"},
+            {"taskUrl": "http://people.csail.mit.edu/apnewman/word_comparison/?task=8"},
+            {"taskUrl": "http://people.csail.mit.edu/apnewman/word_comparison/?task=9"}
+        ]
     }
 }
