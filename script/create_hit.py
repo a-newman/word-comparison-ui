@@ -1,5 +1,6 @@
 from boto3 import client
 import json
+import copy
 
 with open('../config.json', 'r') as f:
     config = json.loads(f.read())['hitCreation']
@@ -12,7 +13,7 @@ else:
 cl = client('mturk', region_name='us-east-1', endpoint_url=endpoint_url)
 
 
-def create_hit():
+def create_hit(task):
     quals = [
        {
            'QualificationTypeId': '00000000000000000071',
@@ -31,22 +32,28 @@ def create_hit():
     ]
 
     questionText = "<ExternalQuestion xmlns=\"http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/"
-    questionText += "2006-07-14/ExternalQuestion.xsd\">\n<ExternalURL>" + config['taskUrl']
+    questionText += "2006-07-14/ExternalQuestion.xsd\">\n<ExternalURL>" + task['taskUrl']
     questionText += "</ExternalURL>\n  <FrameHeight>700</FrameHeight>\n</ExternalQuestion>"
 
     cl.create_hit(
-        MaxAssignments=config['numAssignments'],
+        MaxAssignments=task['numAssignments'],
         AutoApprovalDelayInSeconds=604800,
-        LifetimeInSeconds=config['lifetime'],
-        AssignmentDurationInSeconds=config['duration'],
-        Reward=config['rewardAmount'],
-        Title=config['title'],
-        Keywords=config['keywords'],
-        Description=config['description'],
+        LifetimeInSeconds=task['lifetime'],
+        AssignmentDurationInSeconds=task['duration'],
+        Reward=task['rewardAmount'],
+        Title=task['title'],
+        Keywords=task['keywords'],
+        Description=task['description'],
         Question=questionText,
         QualificationRequirements=quals,
-        )
+    )
 
 
-for i in range(config['numTasks']):
-    create_hit()
+if config['variants']: 
+    for var in variants: 
+        task = copy.deepcopy(config)
+        task.update(var)
+        make_hit(task)
+else: 
+  for i in range(config['numTasks']):
+      create_hit(config)
