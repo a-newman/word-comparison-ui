@@ -25,7 +25,7 @@
         "duration": 300,
         "lifetime": 86400,
         "taskUrl": "",
-        "production": false, 
+        "production": true, 
         "variants": [
             {"taskUrl": "https://people.csail.mit.edu/apnewman/word_comparison/?task=1"}, 
             {"taskUrl": "https://people.csail.mit.edu/apnewman/word_comparison/?task=2"}, 
