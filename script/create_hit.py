@@ -35,7 +35,7 @@ def create_hit(task):
     questionText += "2006-07-14/ExternalQuestion.xsd\">\n<ExternalURL>" + task['taskUrl']
     questionText += "</ExternalURL>\n  <FrameHeight>700</FrameHeight>\n</ExternalQuestion>"
 
-    cl.create_hit(
+    response = cl.create_hit(
         MaxAssignments=task['numAssignments'],
         AutoApprovalDelayInSeconds=604800,
         LifetimeInSeconds=task['lifetime'],
@@ -48,12 +48,16 @@ def create_hit(task):
         QualificationRequirements=quals,
     )
 
+    print(response)
+
 
 if config['variants']: 
-    for var in variants: 
+    print("creating " + str(len(config['variants'])) + " variants")
+    for var in config['variants']: 
         task = copy.deepcopy(config)
         task.update(var)
-        make_hit(task)
+        create_hit(task)
 else: 
+  print("creating " + str(config['numTasks']) + " tasks")
   for i in range(config['numTasks']):
       create_hit(config)

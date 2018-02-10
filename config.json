@@ -27,15 +27,15 @@
         "taskUrl": "",
         "production": false, 
         "variants": [
-            {"taskUrl": "http://people.csail.mit.edu/apnewman/word_comparison/?task=1"}, 
-            {"taskUrl": "http://people.csail.mit.edu/apnewman/word_comparison/?task=2"}, 
-            {"taskUrl": "http://people.csail.mit.edu/apnewman/word_comparison/?task=3"}, 
-            {"taskUrl": "http://people.csail.mit.edu/apnewman/word_comparison/?task=4"}, 
-            {"taskUrl": "http://people.csail.mit.edu/apnewman/word_comparison/?task=5"}, 
-            {"taskUrl": "http://people.csail.mit.edu/apnewman/word_comparison/?task=6"}, 
-            {"taskUrl": "http://people.csail.mit.edu/apnewman/word_comparison/?task=7"},
-            {"taskUrl": "http://people.csail.mit.edu/apnewman/word_comparison/?task=8"},
-            {"taskUrl": "http://people.csail.mit.edu/apnewman/word_comparison/?task=9"}
+            {"taskUrl": "https://people.csail.mit.edu/apnewman/word_comparison/?task=1"}, 
+            {"taskUrl": "https://people.csail.mit.edu/apnewman/word_comparison/?task=2"}, 
+            {"taskUrl": "https://people.csail.mit.edu/apnewman/word_comparison/?task=3"}, 
+            {"taskUrl": "https://people.csail.mit.edu/apnewman/word_comparison/?task=4"}, 
+            {"taskUrl": "https://people.csail.mit.edu/apnewman/word_comparison/?task=5"}, 
+            {"taskUrl": "https://people.csail.mit.edu/apnewman/word_comparison/?task=6"}, 
+            {"taskUrl": "https://people.csail.mit.edu/apnewman/word_comparison/?task=7"},
+            {"taskUrl": "https://people.csail.mit.edu/apnewman/word_comparison/?task=8"},
+            {"taskUrl": "https://people.csail.mit.edu/apnewman/word_comparison/?task=9"}
         ]
     }
 }

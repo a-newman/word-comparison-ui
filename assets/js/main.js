@@ -130,6 +130,8 @@ function submitHIT() {
 
     addHiddenField(form, 'assignmentId', state.assignmentId);
     addHiddenField(form, 'workerId', state.workerId);
+    // add the url 
+    addHiddenField(form, 'task', gup('task'));
     var results = {
         'inputs': state.taskInputs,
         'outputs': state.taskOutputs
